@@ -1,8 +1,6 @@
 # StateToAbbr
 
-This gem is used to dynamically change a U.S. state to it's two letter abbreviation OR change the abbreviation to the full state name. Works with all 50 U.S. states and Territories! 
-
-TODO: Delete this and the text above, and describe your gem
+This gem is used to dynamically change a US state to it's two letter abbreviation OR change the abbreviation to the FULL state name. Works with all 50 U.S. States and Territories!
 
 ## Installation
 
@@ -22,7 +20,15 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```
+StateToAbbr::Abbr.convert('Indiana')
+>> IN
+```
+
+```
+StateToAbbr::Abbr.convert('IN')
+>> Indiana
+```
 
 ## Development
 
@@ -32,7 +38,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/state_to_abbr.
+Bug reports and pull requests are welcome on GitHub at https://github.com/dlenhart/state_to_abbr.
 
 ## License
 

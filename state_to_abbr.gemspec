@@ -8,15 +8,15 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Drew D. Lenhart"]
   spec.email         = ["dlenhart@gmail.com"]
 
-  spec.summary       = %q{blah.}
-  spec.description   = %q{blah}
+  spec.summary       = %q{Dynamically convert US states to abbreviations or vice versa.}
+  spec.description   = %q{Dynamically convert US States to abbreviations.}
   spec.homepage      = "https://github.com/dlenhart/state_to_abbr"
   spec.license       = "MIT"
 
-  spec.metadata["allowed_push_host"] = "TODO: Set to 'http://mygemserver.com'"
+  spec.metadata["allowed_push_host"] = ""
 
   spec.metadata["homepage_uri"] = spec.homepage
-  spec.metadata["source_code_uri"] = "TODO: Put your gem's public repo URL here."
+  spec.metadata["source_code_uri"] = "https://github.com/dlenhart/state_to_abbr"
   spec.metadata["changelog_uri"] = "TODO: Put your gem's CHANGELOG.md URL here."
 
   # Specify which files should be added to the gem when it is released.
@@ -31,5 +31,4 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "bundler", "~> 2.0"
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "rspec", "~> 3.0"
-  spec.add_development_dependency "pry"
 end

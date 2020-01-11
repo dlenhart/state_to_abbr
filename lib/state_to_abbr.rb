@@ -23,7 +23,7 @@ module StateToAbbr
     end
 
     def states_to_abbreviations
-      @data
+      @data.freeze
     end
 
     def abbr?(str)
