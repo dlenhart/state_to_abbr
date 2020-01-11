@@ -18,5 +18,4 @@ RSpec.describe StateToAbbr do
       expect(StateToAbbr::Abbr.convert(abbr)).to eq(state), "Expected \"#{abbr} to convert to: #{state}"
     end
   end
-
 end
