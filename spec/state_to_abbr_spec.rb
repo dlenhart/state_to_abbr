@@ -6,7 +6,8 @@ RSpec.describe StateToAbbr do
     expect(StateToAbbr::VERSION).not_to be nil
   end
 
-  it "does something useful" do
-    expect(false).to eq(true)
+  it "converts Alaska to abbreviation" do
+    state = 'Alaska'
+    expect(StateToAbbr::Abbr.convert(state)).to eq('AK')
   end
 end

@@ -8,15 +8,23 @@ module StateToAbbr
     attr_reader :string
 
     def initialize(string)
-      @data = YAML.load_file('../data/states.yml')
+      @data = YAML.load_file(File.join(__dir__, 'united_states_and_territories.yml'))
       @string = string
     end
 
-    def self.convert(string, method: :convert_abbr_or_state)
-      Abbr.new(string).send(method)
+    def self.convert(string)
+      Abbr.new(string).send(:convert_abbr_or_state)
     end
 
     private
+
+    def abbreviations_to_states
+      @data.invert.freeze
+    end
+
+    def states_to_abbreviations
+      @data
+    end
 
     def abbr?(str)
       true if str.size <= 2
@@ -26,18 +34,14 @@ module StateToAbbr
       true if str.size >= 3
     end
 
-    def inverted_data
-      @data.invert.freeze
-    end
-
-    def normal_data
-      @data
+    def capitalize_all_words
+      string.downcase.split.map(&:capitalize).join(' ')
     end
 
     def determine_type
       return _raise_error if string.to_s.strip.empty?
 
-      abbr?(string) ? string.upcase : string.downcase.capitalize
+      abbr?(string) ? string.upcase : capitalize_all_words
     end
 
     def determine_output(data, str)
@@ -48,9 +52,9 @@ module StateToAbbr
       str = determine_type
 
       state = if abbr?(str)
-                determine_output(:inverted_data, str)
+                determine_output(:abbreviations_to_states, str)
               elsif state?(str)
-                determine_output(:normal_data, str)
+                determine_output(:states_to_abbreviations, str)
               end
       state
     end
@@ -60,4 +64,3 @@ module StateToAbbr
     end
   end
 end
-puts "#{StateToAbbr::Abbr.convert(' ')}"
